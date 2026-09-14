@@ -1,0 +1,33 @@
+# ISDSRec ablation overlay
+schema_version: 1
+config_type: ablation_overlay
+ablation_id: clean_input_transformer
+paper_name: "Clean-Input Transformer"
+paper_location: "Section 4.3.2 / Table 4(b)"
+base_config_pattern: "configs/isdsrec/{dataset}.yaml"
+intent:
+  isolates: "Transformer capacity and temporal conditioning without input corruption or diffusion recovery"
+  architecture_control: true
+override:
+  backbone:
+    retain_isdsrec_transformer_capacity: true
+  diffusion:
+    enabled: false
+    diffusion_step_conditioning_enabled: false
+    analytical_recovery_enabled: false
+  input_corruption:
+    enabled: false
+    type: "none"
+    training_input: "clean"
+    inference_input: "clean"
+  temporal_conditioning:
+    recency_conditioning_enabled: true
+  losses:
+    recommendation_loss_enabled: true
+    reconstruction_mse_enabled: false
+    noise_prediction_loss_enabled: false
+  preference_reconstruction:
+    enabled: true
+  scoring:
+    enabled: true
+

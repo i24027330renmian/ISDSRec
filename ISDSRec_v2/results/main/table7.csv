@@ -1,0 +1,13 @@
+﻿Panel,Dataset,GTE Encoding Time (min),Semantic Cache Size (MiB),Training Time (min/run),Trainable Parameters (M),Clean Latency (ms/request),One-Pass Latency (ms/request),Clean Throughput (req/s),One-Pass Throughput (req/s),Clean Peak Memory (GB),One-Pass Peak Memory (GB),HR@10 noise-induced SD,NDCG@10 noise-induced SD
+a,Beauty,11.8,165.4,24.6,2.5,,,,,,,,
+a,Sports and Outdoors,17.9,251,36.8,3.3,,,,,,,,
+a,Toys and Games,11.6,163,21.3,2.48,,,,,,,,
+a,MovieLens-1M,3.9,46.7,118.4,1.43,,,,,,,,
+b,Beauty,,,,,3.4,5,1800,1280,1.25,1.58,,
+b,Sports and Outdoors,,,,,4.6,6.7,1400,1000,1.48,1.89,,
+b,Toys and Games,,,,,3.3,4.9,1850,1320,1.24,1.56,,
+b,MovieLens-1M,,,,,2.8,4.2,2100,1500,1.08,1.39,,
+c,Beauty,,,,,,,,,,,0.00024,0.00014
+c,Sports,,,,,,,,,,,0.00031,0.00019
+c,Toys,,,,,,,,,,,0.00027,0.00016
+c,MovieLens-1M,,,,,,,,,,,0.00018,0.0001

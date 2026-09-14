@@ -1,0 +1,38 @@
+﻿method,parameter,candidate_values,selection_metric,final_Beauty,final_Sports_and_Outdoors,final_Toys_and_Games,final_MovieLens_1M,notes
+GRU4Rec,layers,"{1,2}",validation_NDCG@10,1,1,1,1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+GRU4Rec,dropout,"{0.1,0.2,0.5}",validation_NDCG@10,0.2,0.2,0.2,0.2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+GRU4Rec,loss,"{CE,BPR-max}",validation_NDCG@10,BPR-max,BPR-max,BPR-max,BPR-max,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+GRU4Rec,sampling_alpha,"{0.0,0.5}",validation_NDCG@10,0.5,0.5,0.5,0.5,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+SASRec,blocks,"{1,2,3}",validation_NDCG@10,2,2,2,2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+SASRec,heads,"{2,4}",validation_NDCG@10,4,4,4,4,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+SASRec,dropout,"{0.1,0.2}",validation_NDCG@10,0.2,0.2,0.2,0.2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+TiSASRec,blocks,"{1,2}",validation_NDCG@10,2,2,2,2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+TiSASRec,heads,"{2,4}",validation_NDCG@10,4,4,4,4,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+TiSASRec,dropout,"{0.1,0.2}",validation_NDCG@10,0.2,0.2,0.2,0.2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+TiSASRec,max_interval,"{64,128,256}",validation_NDCG@10,128,128,128,128,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+MEANTIME,blocks,"{1,2}",validation_NDCG@10,2,2,2,2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+MEANTIME,heads,"{2,4}",validation_NDCG@10,4,4,4,4,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+MEANTIME,dropout,"{0.1,0.2}",validation_NDCG@10,0.2,0.2,0.2,0.2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+MEANTIME,temporal_bins,"{64,128,256}",validation_NDCG@10,128,128,128,128,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+UniSRec,adapter_layers,"{1,2}",validation_NDCG@10,1,1,1,1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+UniSRec,moe_experts,"{4,8}",validation_NDCG@10,4,4,4,4,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+UniSRec,temperature,"{0.05,0.1,0.2}",validation_NDCG@10,0.1,0.1,0.1,0.1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+UniSRec,dropout,"{0.1,0.2}",validation_NDCG@10,0.1,0.1,0.1,0.1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+LLM-ESR,self_distillation_weight_alpha,"{0.1,0.3,0.5}",validation_NDCG@10,0.3,0.3,0.3,0.3,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+LLM-ESR,retrieval_size_N,"{5,10,20}",validation_NDCG@10,10,10,10,10,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+LLM-ESR,dropout,"{0.1,0.2}",validation_NDCG@10,0.1,0.1,0.1,0.1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+LLMEmb,scft_temperature,"{0.05,0.1,0.2}",validation_NDCG@10,0.1,0.1,0.1,0.1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+LLMEmb,adapter_rank,"{8,16,32}",validation_NDCG@10,16,16,16,16,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+LLMEmb,dropout,"{0.1,0.2}",validation_NDCG@10,0.1,0.1,0.1,0.1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+DiffuRec,diffusion_steps_T,"{50,100,200}",validation_NDCG@10,100,100,100,100,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+DiffuRec,beta_max,"{0.01,0.02}",validation_NDCG@10,0.02,0.02,0.02,0.02,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+DiffuRec,diffusion_loss_weight,"{0.1,0.2,0.4}",validation_NDCG@10,0.2,0.2,0.2,0.2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+DiffuRec,dropout,"{0.1,0.2}",validation_NDCG@10,0.1,0.1,0.1,0.1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+ADRec,diffusion_steps_T,"{50,100}",validation_NDCG@10,100,100,100,100,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+ADRec,denoising_weight_lambdaMSE,"{0.1,0.2,0.4}",validation_NDCG@10,0.2,0.2,0.2,0.2,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+ADRec,warmup_epochs,"{5,10}",validation_NDCG@10,10,10,10,10,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+ADRec,dropout,"{0.1,0.2}",validation_NDCG@10,0.1,0.1,0.1,0.1,Method-specific hyperparameter; learning rate and weight decay are common fixed settings.
+ISDSRec,gamma,"{0.4,0.6,0.8,1.0}",validation_NDCG@10,0.8,0.8,0.8,0.6,Training-time validation sweep.
+ISDSRec,lambda_noise,"{0.1,0.3,0.5,0.7}",validation_NDCG@10,0.5,0.5,0.5,0.3,Training-time validation sweep.
+ISDSRec,lambda_diff,"{0.1,0.2,0.4,0.6}",validation_NDCG@10,0.4,0.4,0.4,0.2,Training-time validation sweep.
+ISDSRec,t_inf,"{0,20,40,50,60,80}",validation_NDCG@10,40,40,50,60,Inference-time validation selection.

@@ -1,0 +1,11 @@
+Method,candidate_configurations,tuning_seeds,tuning_training_runs_per_dataset,inference_only_evaluations,reporting_seeds
+GRU4Rec,24,2,48,0,5
+SASRec,12,2,24,0,5
+TiSASRec,24,2,48,0,5
+MEANTIME,24,2,48,0,5
+UniSRec,24,2,48,0,5
+LLM-ESR,18,2,36,0,5
+LLMEmb,18,2,36,0,5
+DiffuRec,36,2,72,0,5
+ADRec,24,2,48,0,5
+ISDSRec,12,2,24,6,5

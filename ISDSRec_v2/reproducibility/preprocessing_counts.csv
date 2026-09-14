@@ -1,0 +1,5 @@
+﻿dataset,raw_users,raw_items,raw_interactions,deduplicated_users,deduplicated_items,deduplicated_interactions,after_5core_users,after_5core_items,after_5core_interactions,train_interactions,validation_interactions,test_interactions,split_sum_check,split_matches_after_5core
+Beauty,1210271,249274,2023070,1210271,249274,2023070,22363,12101,198502,153776,22363,22363,198502,True
+Sports and Outdoors,1990521,478898,3268695,1990521,478898,3268695,35598,18357,296337,225141,35598,35598,296337,True
+Toys and Games,1342911,327698,2252771,1342911,327698,2252771,19412,11924,167597,128773,19412,19412,167597,True
+MovieLens-1M,6040,3706,1000209,6040,3706,1000209,6040,3416,999611,987531,6040,6040,999611,True

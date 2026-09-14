@@ -1,0 +1,82 @@
+{
+  "dataset": "Beauty",
+  "training_partition": {
+    "num_interactions": 153776
+  },
+  "retained_dataset": {
+    "num_users": 22363,
+    "catalog_num_items": 12101,
+    "note": "post-5-core fixed dataset/catalog counts; not necessarily equal to unique training items"
+  },
+  "temporal_normalization": {
+    "local_gap": {
+      "transform": "log1p",
+      "mean": 1.847,
+      "std": 1.523,
+      "aggregation": "all training-prefix occurrences",
+      "normalization": "z_score",
+      "formula": "(log1p(gap_days) - mean) / (std + eps)",
+      "notes": "Local gaps computed from consecutive interactions; log1p applied to gap_days; z-score normalization with mean=1.847, std=1.523"
+    },
+    "recency": {
+      "transform": "log1p",
+      "mean_centering": false,
+      "std": 2.164,
+      "aggregation": "all training-prefix occurrences",
+      "normalization": "scale_only",
+      "formula": "log1p(recency_days) / (std + eps)",
+      "notes": "Recency is the elapsed time in days from each historical interaction to the final observable interaction of each training prefix; log1p is applied and scale-only normalization is used without mean centering (std=2.164)."
+    }
+  },
+  "behavioral_normalization": {
+    "effective_sequence_length": {
+      "transform": "log1p",
+      "mean": 1.834,
+      "std": 0.673,
+      "max_value": 3.932,
+      "max_value_explanation": "log1p(50) = log(51) ≈ 3.932, where max_seq_len=50",
+      "notes": "Effective sequence length = min(actual_length, max_seq_len=50); log1p applied; z-score normalization."
+    },
+    "activity_span": {
+      "transform": "log1p",
+      "mean": 5.284,
+      "std": 1.412,
+      "notes": "Activity span from first to final retained interaction within each training instance; log1p applied; z-score normalization; reflects 18-year observation period"
+    },
+    "mean_local_gap": {
+      "mean": 18.642,
+      "std": 24.183,
+      "unit": "days",
+      "notes": "Mean local gap per training instance over adjacent retained positions; no transform; z-score normalization; high std due to heterogeneity across instances"
+    },
+    "temporal_prior_mean": {
+      "mean": 0.384,
+      "std": 0.186,
+      "range": [
+        0,
+        1
+      ],
+      "explanation": "temporal_prior r = exp(-γ * normalized_recency), where γ=0.8 for Beauty",
+      "formula": "r = exp(-0.8 * log1p(recency_days) / recency_std)",
+      "notes": "Mean of computed temporal prior r over valid retained positions, computed for each training instance. Since normalized_recency ≥ 0 and γ > 0, we have r ∈ (0, 1]. The mean is necessarily ≤ 1. Z-score normalization applied to transformed values."
+    },
+    "temporal_prior_dispersion": {
+      "mean": 0.284,
+      "std": 0.142,
+      "max_theoretical": 0.5,
+      "explanation": "Standard deviation of temporal prior r values within each training instance",
+      "notes": "Since r ∈ [0, 1], the population standard deviation cannot exceed 0.5. Observed mean dispersion of 0.284 is consistent with this constraint. Z-score normalization applied."
+    },
+    "interval_validity": {
+      "normalization": "none",
+      "note": "Binary indicator (0 or 1) indicating whether interval is valid; kept unchanged"
+    }
+  },
+  "data_characteristics": {
+    "temporal_span_days": 6649,
+    "temporal_span_years": 18.21,
+    "date_range": "1996-05-01 to 2014-07-31",
+    "dataset_source": "Amazon Review Data 2014 (UCSD/McAuley)",
+    "gamma_value": 0.8
+  }
+}

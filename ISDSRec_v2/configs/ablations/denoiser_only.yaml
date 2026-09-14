@@ -1,0 +1,31 @@
+# ISDSRec ablation overlay
+schema_version: 1
+config_type: ablation_overlay
+ablation_id: denoiser_only
+paper_name: "Denoiser Conditioning Only"
+paper_location: "Section 4.3.4 / Table 6(a)"
+base_config_pattern: "configs/isdsrec/{dataset}.yaml"
+intent:
+  isolates: "direct recency pathway through denoiser conditioning"
+  table_6a_restricted_variant: true
+override:
+  scheduling:
+    enabled: true
+    mode: "noise_matched_uniform"
+    interaction_specific: false
+    matching:
+      statistic: "mean_cumulative_noise_variance"
+      scope: "valid_positions_within_each_sequence"
+      frequency: "every_diffusion_step"
+  recency_prior_usage:
+    scheduler: false
+    denoiser_conditioning: true
+    preference_attention_bias: false
+    gate_prior_mean: true
+    gate_prior_std: true
+  diffusion:
+    enabled: true
+    denoiser_enabled: true
+    analytical_recovery_enabled: true
+  preference_reconstruction:
+    enabled: true

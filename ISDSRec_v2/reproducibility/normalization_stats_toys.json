@@ -1,0 +1,82 @@
+{
+  "dataset": "Toys and Games",
+  "training_partition": {
+    "num_interactions": 128773
+  },
+  "retained_dataset": {
+    "num_users": 19412,
+    "catalog_num_items": 11924,
+    "note": "post-5-core fixed dataset/catalog counts; not necessarily equal to unique training items"
+  },
+  "temporal_normalization": {
+    "local_gap": {
+      "transform": "log1p",
+      "mean": 1.789,
+      "std": 1.456,
+      "aggregation": "all training-prefix occurrences",
+      "normalization": "z_score",
+      "formula": "(log1p(gap_days) - mean) / (std + eps)",
+      "notes": "Local gaps computed from consecutive interactions; log1p applied; z-score normalization"
+    },
+    "recency": {
+      "transform": "log1p",
+      "mean_centering": false,
+      "std": 2.098,
+      "aggregation": "all training-prefix occurrences",
+      "normalization": "scale_only",
+      "formula": "log1p(recency_days) / (std + eps)",
+      "notes": "Recency is the elapsed time in days from each historical interaction to the final observable interaction of each training prefix; log1p is applied and scale-only normalization is used without mean centering (std=2.098)."
+    }
+  },
+  "behavioral_normalization": {
+    "effective_sequence_length": {
+      "transform": "log1p",
+      "mean": 1.878,
+      "std": 0.621,
+      "max_value": 3.932,
+      "max_value_explanation": "log1p(50) = log(51) ≈ 3.932, where max_seq_len=50",
+      "notes": "Effective sequence length = min(actual_length, max_seq_len=50); log1p applied; z-score normalization"
+    },
+    "activity_span": {
+      "transform": "log1p",
+      "mean": 5.156,
+      "std": 1.367,
+      "notes": "Activity span from first to final retained interaction within each training instance; log1p applied; z-score normalization"
+    },
+    "mean_local_gap": {
+      "mean": 17.283,
+      "std": 21.564,
+      "unit": "days",
+      "notes": "Mean local gap per training instance over adjacent retained positions; no transform; z-score normalization"
+    },
+    "temporal_prior_mean": {
+      "mean": 0.356,
+      "std": 0.168,
+      "range": [
+        0,
+        1
+      ],
+      "explanation": "temporal_prior r = exp(-γ * normalized_recency), where γ=0.8 for Toys",
+      "formula": "r = exp(-0.8 * log1p(recency_days) / recency_std)",
+      "notes": "Mean temporal prior over valid retained positions, computed for each training instance. Range necessarily [0, 1]. Z-score normalization applied."
+    },
+    "temporal_prior_dispersion": {
+      "mean": 0.267,
+      "std": 0.134,
+      "max_theoretical": 0.5,
+      "explanation": "Standard deviation of temporal prior r values within each training instance",
+      "notes": "Since r ∈ [0, 1], max std is 0.5. Observed mean of 0.267 is consistent with this constraint. Z-score normalization applied."
+    },
+    "interval_validity": {
+      "normalization": "none",
+      "note": "Binary indicator (0 or 1); kept unchanged"
+    }
+  },
+  "data_characteristics": {
+    "temporal_span_days": 6649,
+    "temporal_span_years": 18.21,
+    "date_range": "1996-05-01 to 2014-07-31",
+    "dataset_source": "Amazon Review Data 2014 (UCSD/McAuley)",
+    "gamma_value": 0.8
+  }
+}

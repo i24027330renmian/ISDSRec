@@ -1,0 +1,37 @@
+﻿dataset,stratification,group,unit,lower_bound,upper_bound,lower_inclusive,upper_inclusive,n,rule_note
+Beauty,target_gap,Short,days,,14,,True,7437,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Beauty,target_gap,Medium,days,14,62,False,True,7481,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Beauty,target_gap,Long,days,62,,False,,7445,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Beauty,user_activity,Sparse,training_interactions,,5,,True,7658,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Beauty,user_activity,Medium,training_interactions,5,8,False,True,7271,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Beauty,user_activity,Active,training_interactions,8,,False,,7434,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Beauty,item_popularity,Tail,training_occurrences,,7,,True,8112,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Beauty,item_popularity,Mid-Popularity,training_occurrences,7,15,False,True,6931,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Beauty,item_popularity,Head,training_occurrences,15,,False,,7320,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,target_gap,Short,days,,18,,True,11860,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,target_gap,Medium,days,18,78,False,True,11904,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,target_gap,Long,days,78,,False,,11834,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,user_activity,Sparse,training_interactions,,5,,True,12406,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,user_activity,Medium,training_interactions,5,8,False,True,11103,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,user_activity,Active,training_interactions,8,,False,,12089,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,item_popularity,Tail,training_occurrences,,7,,True,12820,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,item_popularity,Mid-Popularity,training_occurrences,7,14,False,True,10650,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Sports and Outdoors,item_popularity,Head,training_occurrences,14,,False,,12128,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,target_gap,Short,days,,16,,True,6450,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,target_gap,Medium,days,16,68,False,True,6486,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,target_gap,Long,days,68,,False,,6476,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,user_activity,Sparse,training_interactions,,5,,True,6721,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,user_activity,Medium,training_interactions,5,8,False,True,6178,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,user_activity,Active,training_interactions,8,,False,,6513,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,item_popularity,Tail,training_occurrences,,7,,True,7015,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,item_popularity,Mid-Popularity,training_occurrences,7,15,False,True,5786,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+Toys and Games,item_popularity,Head,training_occurrences,15,,False,,6611,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,target_gap,Short,days,,3,,True,2008,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,target_gap,Medium,days,3,14,False,True,2021,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,target_gap,Long,days,14,,False,,2011,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,user_activity,Sparse,training_interactions,,62,,True,2156,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,user_activity,Medium,training_interactions,62,153,False,True,1770,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,user_activity,Active,training_interactions,153,,False,,2114,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,item_popularity,Tail,training_occurrences,,43,,True,2250,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,item_popularity,Mid-Popularity,training_occurrences,43,188,False,True,1605,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.
+MovieLens-1M,item_popularity,Head,training_occurrences,188,,False,,2185,Lower cutoff belongs to lower stratum; upper cutoff belongs to middle stratum.

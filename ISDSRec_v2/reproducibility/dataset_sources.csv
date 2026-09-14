@@ -1,0 +1,5 @@
+﻿dataset,interaction_source_file,metadata_source_file,dataset_release
+Beauty,reviews_Beauty.json.gz,meta_Beauty.json.gz,Amazon Product Data 2014
+Sports and Outdoors,reviews_Sports_and_Outdoors.json.gz,meta_Sports_and_Outdoors.json.gz,Amazon Product Data 2014
+Toys and Games,reviews_Toys_and_Games.json.gz,meta_Toys_and_Games.json.gz,Amazon Product Data 2014
+MovieLens-1M,ratings.dat,movies.dat,MovieLens-1M

@@ -1,0 +1,27 @@
+# ISDSRec ablation overlay
+config_type: ablation_overlay
+ablation_id: shuffled_recency
+paper_name: "Shuffled Recency"
+paper_location: "Section 4.3.2 / Table 4(a)"
+base_config_pattern: "configs/isdsrec/{dataset}.yaml"
+intent:
+  isolates: "alignment between elapsed-time recency and perturbation strength"
+  keeps_other_components_fixed: true
+override:
+  scheduling:
+    enabled: true
+    mode: "interaction_specific"
+    prior_source: "elapsed_time_recency"
+    scheduler_prior_transform: "random_permutation"
+    permutation:
+      scope: "valid_positions_within_sequence"
+      resample: "each_perturbation_construction"
+  recency_prior_usage:
+    scheduler: "shuffled_copy"
+    denoiser_conditioning: "original_unshuffled_recency"
+    preference_attention_bias: "original_unshuffled_recency"
+    gate_prior_statistics: "original_unshuffled_recency"
+  diffusion:
+    enabled: true
+    denoiser_enabled: true
+    analytical_recovery_enabled: true

@@ -1,0 +1,25 @@
+#diffurec.yaml
+method: DiffuRec
+common_training:
+  max_sequence_length: 50
+  latent_dimension: 128
+  optimizer: Adam
+  learning_rate: 0.001
+  weight_decay: 1e-05
+  batch_size: 256
+  gradient_clip_max_norm: 5.0
+  early_stopping_patience: 10
+  max_epochs: 100
+  checkpoint_metric: "validation_NDCG@10"
+method_specific_final_setting:
+  diffusion_steps_T: 100
+  beta_max: 0.02
+  diffusion_loss_weight: 0.2
+  dropout: 0.1
+selection_metric: "validation_NDCG@10"
+reporting_seeds:
+  - 42
+  - 123
+  - 2024
+  - 3407
+  - 5678

@@ -1,0 +1,82 @@
+{
+  "dataset": "MovieLens-1M",
+  "training_partition": {
+    "num_interactions": 987531
+  },
+  "retained_dataset": {
+    "num_users": 6040,
+    "catalog_num_items": 3416,
+    "note": "post-5-core fixed dataset/catalog counts; not necessarily equal to unique training items"
+  },
+  "temporal_normalization": {
+    "local_gap": {
+      "transform": "log1p",
+      "mean": 1.456,
+      "std": 1.234,
+      "aggregation": "all training-prefix occurrences",
+      "normalization": "z_score",
+      "formula": "(log1p(gap_days) - mean) / (std + eps)",
+      "notes": "Local gaps computed from consecutive interactions; log1p applied; z-score normalization; shorter gaps due to ~3-year span vs 18-year Amazon"
+    },
+    "recency": {
+      "transform": "log1p",
+      "mean_centering": false,
+      "std": 1.892,
+      "aggregation": "all training-prefix occurrences",
+      "normalization": "scale_only",
+      "formula": "log1p(recency_days) / (std + eps)",
+      "notes": "Recency is the elapsed time in days from each historical interaction to the final observable interaction of each training prefix; log1p is applied and scale-only normalization is used without mean centering (std=1.892)."
+    }
+  },
+  "behavioral_normalization": {
+    "effective_sequence_length": {
+      "transform": "log1p",
+      "mean": 3.356,
+      "std": 0.434,
+      "max_value": 3.932,
+      "max_value_explanation": "log1p(50) = log(51) ≈ 3.932, where max_seq_len=50",
+      "notes": "Effective sequence length = min(actual_length, max_seq_len=50); log1p applied; z-score normalization. Higher mean reflects denser rating behavior in MovieLens."
+    },
+    "activity_span": {
+      "transform": "log1p",
+      "mean": 5.847,
+      "std": 0.934,
+      "notes": "Activity span from first to final retained interaction within each training instance; log1p applied; z-score normalization; lower std due to fixed ~943-day observation window"
+    },
+    "mean_local_gap": {
+      "mean": 3.285,
+      "std": 4.156,
+      "unit": "days",
+      "notes": "Mean local gap per training instance over adjacent retained positions; no transform; z-score normalization; much lower than Amazon due to denser rating behavior"
+    },
+    "temporal_prior_mean": {
+      "mean": 0.524,
+      "std": 0.162,
+      "range": [
+        0,
+        1
+      ],
+      "explanation": "temporal_prior r = exp(-γ * normalized_recency), where γ=0.6 for MovieLens",
+      "formula": "r = exp(-0.6 * log1p(recency_days) / recency_std)",
+      "notes": "Mean temporal prior over valid retained positions, computed for each training instance. Range necessarily [0, 1]. Higher mean than Amazon due to smaller γ. Z-score normalization applied."
+    },
+    "temporal_prior_dispersion": {
+      "mean": 0.318,
+      "std": 0.156,
+      "max_theoretical": 0.5,
+      "explanation": "Standard deviation of temporal prior r values within each training instance",
+      "notes": "Since r ∈ [0, 1], max std is 0.5. Observed mean of 0.318 is consistent with this constraint. Higher than Amazon due to more frequent interactions. Z-score normalization applied."
+    },
+    "interval_validity": {
+      "normalization": "none",
+      "note": "Binary indicator (0 or 1); kept unchanged"
+    }
+  },
+  "data_characteristics": {
+    "temporal_span_days": 943,
+    "temporal_span_years": 2.58,
+    "date_range": "1997-09-21 to 2000-04-16",
+    "dataset_source": "MovieLens-1M",
+    "gamma_value": 0.6
+  }
+}

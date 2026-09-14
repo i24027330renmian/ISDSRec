@@ -1,0 +1,36 @@
+# ISDSRec ablation overlay
+schema_version: 1
+config_type: ablation_overlay
+ablation_id: heteroscedastic_dae
+paper_name: "Heteroscedastic Gaussian DAE"
+paper_location: "Section 4.3.2 / Table 4(b)"
+base_config_pattern: "configs/isdsrec/{dataset}.yaml"
+intent:
+  isolates: "direct heteroscedastic Gaussian denoising versus cumulative diffusion and analytical recovery"
+  architecture_control: true
+override:
+  backbone:
+    retain_isdsrec_transformer_capacity: true
+  diffusion:
+    cumulative_diffusion_enabled: false
+    diffusion_step_conditioning_enabled: false
+    analytical_recovery_enabled: false
+  input_corruption:
+    enabled: true
+    type: "position_specific_gaussian"
+    noise_matching:
+      reference: "isdsrec_diffusion_input"
+      target_statistic: "signal_to_noise_ratio"
+      operating_point: "dataset_selected_t_inf"
+  temporal_conditioning:
+    recency_conditioning_enabled: true
+  recovery:
+    mode: "direct_clean_representation_reconstruction"
+  losses:
+    recommendation_loss_enabled: true
+    reconstruction_mse_enabled: true
+    reconstruction_mse_weight: "NOT_STATED_IN_MANUSCRIPT"
+  preference_reconstruction:
+    enabled: true
+  scoring:
+    enabled: true

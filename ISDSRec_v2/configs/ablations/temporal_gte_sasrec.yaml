@@ -1,0 +1,33 @@
+# ISDSRec ablation overlay
+schema_version: 1
+config_type: ablation_overlay
+ablation_id: temporal_gte_sasrec
+paper_name: "Temporal-GTE SASRec"
+paper_location: "Section 4.3.2 / Table 4(c)"
+base_config_pattern: "configs/isdsrec/{dataset}.yaml"
+intent:
+  isolates: "conventional non-diffusion temporal modeling with the same semantic source and temporal information"
+  non_diffusion_control: true
+override:
+  backbone:
+    family: "SASRec"
+  semantic_representation:
+    gte_encoder: "same_as_isdsrec"
+    gated_gte_id_fusion: true
+  temporal_input:
+    local_gap_embeddings: true
+    local_gap_integration: "add_to_sequential_input"
+    recency_information: true
+  attention:
+    recency_prior_as_attention_bias: true
+  diffusion:
+    enabled: false
+    perturbation_enabled: false
+    noise_prediction_enabled: false
+    analytical_recovery_enabled: false
+  losses:
+    recommendation_loss_enabled: true
+    diffusion_loss_enabled: false
+    noise_prediction_loss_enabled: false
+    reconstruction_loss_enabled: false
+

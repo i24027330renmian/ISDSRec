@@ -1,0 +1,31 @@
+dataset:
+  name: "toys"
+  display_name: "Toys and Games"
+  processed_dir: "data/processed/toys"
+  semantic_cache: "data/processed/toys/gte_embeddings.npy"
+
+model:
+  max_seq_len: 50
+  latent_dim: 128
+  diffusion_steps: 100
+  beta_start: 0.0001
+  beta_end: 0.02
+  beta_up: 0.05
+  gamma: 0.8
+  lambda_noise: 0.5
+  lambda_diff: 0.4
+  t_inf: 50
+
+training:
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 256
+  negative_samples: 100
+  gradient_clip: 5.0
+  patience: 10
+  max_epochs: 100
+  seed: 42
+
+evaluation:
+  topk: 10
+  noise_realizations: 20

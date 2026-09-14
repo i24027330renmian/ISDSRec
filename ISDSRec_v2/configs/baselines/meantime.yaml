@@ -1,0 +1,25 @@
+#meantime.yaml
+method: MEANTIME
+common_training:
+  max_sequence_length: 50
+  latent_dimension: 128
+  optimizer: Adam
+  learning_rate: 0.001
+  weight_decay: 1e-05
+  batch_size: 256
+  gradient_clip_max_norm: 5.0
+  early_stopping_patience: 10
+  max_epochs: 100
+  checkpoint_metric: "validation_NDCG@10"
+method_specific_final_setting:
+  blocks: 2
+  heads: 4
+  dropout: 0.2
+  temporal_bins: 128
+selection_metric: "validation_NDCG@10"
+reporting_seeds:
+  - 42
+  - 123
+  - 2024
+  - 3407
+  - 5678

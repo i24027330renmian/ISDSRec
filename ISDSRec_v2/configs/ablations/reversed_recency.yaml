@@ -1,0 +1,26 @@
+# ISDSRec ablation overlay
+schema_version: 1
+config_type: ablation_overlay
+ablation_id: reversed_recency
+paper_name: "Reversed Recency"
+paper_location: "Section 4.3.2 / Table 4(a)"
+base_config_pattern: "configs/isdsrec/{dataset}.yaml"
+intent:
+  isolates: "direction of the recency-to-noise correspondence"
+  keeps_other_components_fixed: true
+override:
+  scheduling:
+    enabled: true
+    mode: "interaction_specific"
+    prior_source: "elapsed_time_recency"
+    scheduler_prior_transform: "reverse_positional_order"
+    reverse_scope: "valid_positions_within_sequence"
+  recency_prior_usage:
+    scheduler: "reversed_copy"
+    denoiser_conditioning: "original_elapsed_time_recency"
+    preference_attention_bias: "original_elapsed_time_recency"
+    gate_prior_statistics: "original_elapsed_time_recency"
+  diffusion:
+    enabled: true
+    denoiser_enabled: true
+    analytical_recovery_enabled: true

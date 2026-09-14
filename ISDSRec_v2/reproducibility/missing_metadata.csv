@@ -1,0 +1,5 @@
+﻿dataset,missing_title_n,missing_title_pct,missing_category_n,missing_category_pct,missing_description_n,missing_description_pct
+Beauty,37,0.31,129,1.07,2184,18.05
+Sports and Outdoors,51,0.28,214,1.17,3908,21.29
+Toys and Games,29,0.24,98,0.82,1746,14.64
+MovieLens-1M,0,0.0,0,0.0,3416,100.0

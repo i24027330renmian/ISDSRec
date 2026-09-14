@@ -1,0 +1,10 @@
+﻿method,repository,commit,training_objective,params_beauty_m,params_sports_m,params_toys_m,params_movielens1m_m,config_path
+GRU4Rec,https://github.com/hidasib/GRU4Rec_PyTorch_Official,9f3c7a21,BPR-max ranking objective with sampled negatives.,1.66,2.46,1.64,0.58,configs/baselines/gru4rec.yaml
+SASRec,https://github.com/kang205/SASRec,6a42d9e8,Point-wise binary cross-entropy for next-item prediction with sampled negatives.,1.95,2.75,1.93,0.88,configs/baselines/sasrec.yaml
+TiSASRec,https://github.com/JiachengLi1995/TiSASRec,b7c4e193,SASRec-style next-item objective with sampled negatives and time-interval-aware attention.,2.0,2.81,1.98,0.93,configs/baselines/tisasrec.yaml
+MEANTIME,https://github.com/SungMinCho/MEANTIME,2d8a5f71,Masked-item/Cloze prediction with cross-entropy (negative log-likelihood).,2.07,2.87,2.05,0.99,configs/baselines/meantime.yaml
+UniSRec,https://github.com/RUCAIBox/UniSRec,c19e4b63,Contrastive representation learning followed by downstream sequential-recommendation fine-tuning.,2.5,3.3,2.48,1.42,configs/baselines/unisrec.yaml
+LLM-ESR,https://github.com/liuqidong07/LLM-ESR,e54a7d20,Pairwise ranking plus retrieval-augmented self-distillation: L = LRank + alpha * LSD.,2.25,3.05,2.23,1.17,configs/baselines/llm_esr.yaml
+LLMEmb,https://github.com/liuqidong07/LLMEmb,7c1f9b42,Two-stage SCFT followed by recommendation adaptation training (RAT).,2.4,3.2,2.38,1.32,configs/baselines/llmemb.yaml
+DiffuRec,https://github.com/WHUIR/DiffuRec,a83d2c51,Cross-entropy recommendation objective over the reconstructed target-item representation.,2.6,3.4,2.58,1.52,configs/baselines/diffurec.yaml
+ADRec,https://github.com/Nemo-1024/ADRec,f2e6b914,Joint recommendation/classification and denoising optimization (CE + MSE) with staged training.,2.9,3.7,2.88,1.82,configs/baselines/adrec.yaml

@@ -1,0 +1,27 @@
+# ISDSRec ablation overlay
+schema_version: 1
+config_type: ablation_overlay
+ablation_id: schedule_only
+paper_name: "Scheduling Only"
+paper_location: "Section 4.3.4 / Table 6(a)"
+base_config_pattern: "configs/isdsrec/{dataset}.yaml"
+intent:
+  isolates: "direct recency pathway through interaction-specific scheduling"
+  table_6a_restricted_variant: true
+override:
+  scheduling:
+    enabled: true
+    mode: "interaction_specific"
+    prior_source: "elapsed_time_recency"
+  recency_prior_usage:
+    scheduler: true
+    denoiser_conditioning: false
+    preference_attention_bias: false
+    gate_prior_mean: true
+    gate_prior_std: true
+  diffusion:
+    enabled: true
+    denoiser_enabled: true
+    analytical_recovery_enabled: true
+  preference_reconstruction:
+    enabled: true
